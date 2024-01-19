@@ -1,0 +1,154 @@
+body {
+    font-family: 'Fredoka', sans-serif;
+}
+
+h1 {
+    font-family: 'Fredoka', sans-serif;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header and Nav */
+header {
+    background-color: #f0f8ff;
+    margin-bottom: 20px;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo a {
+    text-decoration: none;
+    color: #1a8cff;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+nav button {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background-color: #45a049;
+}
+
+/* Logo Box */
+
+.logo-box {
+    background-color: #f4f8ff; 
+    padding-top: 20px; 
+    font-size: 1em;
+    padding: 100px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin: auto;
+    width: 1025px;
+}
+
+.logo-box h1 {
+    color: #1a8cff; 
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.logo-box p {
+    color: #333;
+}
+
+/* Gallery */
+
+.image-gallery {
+    position: relative;
+    margin: 20px 0;
+}
+
+.image-title {
+    color: #333; /* Change the color if it blends with your background */
+    text-align: center;
+    margin-top: 5px;
+    font-size: 1em; /* Adjust size as needed */
+}
+
+.gallery-item img {
+    max-width: 100%; /* Limits the image width to the container's width */
+    max-height: 200px; /* Adjust the max-height as needed */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes extra space below the image */
+    margin: 0 auto; /* Centers the image in the container */
+    border-radius: 10px; /* Optional for rounded corners */
+}
+
+.gallery-wrapper {
+    padding: 0 40px; /* Adjust as needed based on the size of the arrow buttons */
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+
+.gallery-item {
+    padding: 10px; /* Adds space around each image */
+    display: inline-block;
+    vertical-align: top; /* Aligns images and titles correctly */
+}
+
+.gallery-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #1a8cff;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.gallery-control.left {
+    left: 0;
+}
+
+.gallery-control.right {
+    right: 0;
+}
+
+/* Footer */
+footer {
+    background-color: #f0f8ff;
+    color: #333;
+    text-align: center;
+    padding: 20px 0;
+    position: flex;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .social-links a {
+    margin: 0 10px;
+}
+
+footer .social-links img {
+    width: 30px;
+    height: auto;
+}
+
+footer button {
+    background-color: #008CBA; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+footer button:hover {
+    background-color: #007BBA;
+}
