@@ -1,0 +1,64 @@
+body {
+    font-family: 'Fredoka', sans-serif;
+}
+
+h1 {
+    font-family: 'Fredoka', sans-serif;
+}
+
+.auth-container {
+    background-color: #f0f8ff;
+    width: 300px;
+    padding: 20px;
+    margin: 50px auto;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.auth-container h2 {
+    color: #1a8cff;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.auth-options {
+    margin-top: 20px;
+}
+
+.auth-options a {
+    color: #1a8cff;
+    text-decoration: none;
+    display: block; /* or 'inline' based on preference */
+    margin: 5px 0;
+}
