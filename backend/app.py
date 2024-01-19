@@ -1,17 +1,25 @@
 from flask import Flask, request, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
-import os
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app, resources={r"*": {"origins": "*"}})  # This allows all origins for all routes
 
 def db_connection():
     conn = None
     try:
         conn = sqlite3.connect('learn2launch.db')
-    except sqlite3.error as e:
+    except sqlite3.Error as e:
         print(e)
     return conn
+
+def create_table(conn, create_table_sql):
+    try:
+        c = conn.cursor()
+        c.execute(create_table_sql)
+    except sqlite3.Error as e:
+        print(e)
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -51,5 +59,24 @@ def login():
     else:
         return jsonify({"message": "Invalid username or password"}), 401
 
-if __name__ == '__main__':
+def main():
+    database = r"learn2launch.db"
+
+    sql_create_users_table = """ CREATE TABLE IF NOT EXISTS users (
+                                     id integer PRIMARY KEY,
+                                     username text NOT NULL,
+                                     password text NOT NULL,
+                                     email text NOT NULL
+                                 ); """
+
+    conn = db_connection()
+
+    if conn is not None:
+        create_table(conn, sql_create_users_table)
+    else:
+        print("Error! Cannot create the database connection.")
+
     app.run(debug=True)
+
+if __name__ == '__main__':
+    main()

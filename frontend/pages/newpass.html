@@ -25,5 +25,28 @@
             <button type="submit">Reset Password</button>
         </form>
     </div>
+    <script>
+        document.getElementById('resetPasswordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            const formData = {
+                newPassword: document.getElementById('new-password').value,
+                confirmPassword: document.getElementById('confirm-password').value
+            };
+    
+            fetch('http://127.0.0.1:5000/register', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => alert(data.message))
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+    </script>    
 </body>
 </html>
