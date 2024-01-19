@@ -47,7 +47,7 @@ nav button:hover {
     background-color: #f4f8ff; 
     padding-top: 20px; 
     font-size: 1em;
-    padding: 100px;
+    padding: 75px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
@@ -57,7 +57,13 @@ nav button:hover {
 
 .logo-box h1 {
     color: #1a8cff; 
-    font-size: 2em;
+    font-size: 5em;
+    margin-bottom: 10px;
+}
+
+.logo-box h2 {
+    color: #1a8cff; 
+    font-size: 2.5em;
     margin-bottom: 10px;
 }
 
@@ -68,57 +74,39 @@ nav button:hover {
 /* Gallery */
 
 .image-gallery {
-    position: relative;
-    margin: 20px 0;
-}
-
-.image-title {
-    color: #333; /* Change the color if it blends with your background */
-    text-align: center;
-    margin-top: 5px;
-    font-size: 1em; /* Adjust size as needed */
-}
-
-.gallery-item img {
-    max-width: 100%; /* Limits the image width to the container's width */
-    max-height: 200px; /* Adjust the max-height as needed */
-    height: auto; /* Maintains aspect ratio */
-    display: block; /* Removes extra space below the image */
-    margin: 0 auto; /* Centers the image in the container */
-    border-radius: 10px; /* Optional for rounded corners */
-}
-
-.gallery-wrapper {
-    padding: 0 40px; /* Adjust as needed based on the size of the arrow buttons */
-    overflow-x: auto;
-    white-space: nowrap;
-    scroll-behavior: smooth;
+    display: flex;
+    justify-content: center; /* Aligns items centrally */
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    gap: 20px; /* Space between images */
+    margin: 20px 0; /* Vertical space around the gallery */
 }
 
 .gallery-item {
-    padding: 10px; /* Adds space around each image */
-    display: inline-block;
-    vertical-align: top; /* Aligns images and titles correctly */
+    flex: 0 0 auto; /* Keeps items from shrinking */
+    text-align: center; /* Centers the title under the image */
 }
 
-.gallery-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #1a8cff;
-    border: none;
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
+.gallery-item img {
+    max-width: 100%; /* Ensures image fits its container */
+    max-height: 200px; /* Adjust as needed */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes extra space below image */
+    margin: 0 auto; /* Centers image in container */
 }
 
-.gallery-control.left {
-    left: 0;
+.image-title {
+    margin-top: 10px;
+    color: #333;
 }
 
-.gallery-control.right {
-    right: 0;
+.features-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.features-section h1 {
+    color: #1a8cff; /* Adjust the color as per your theme */
+    margin-bottom: 15px; /* Space between the title and the gallery */
 }
 
 /* Footer */
