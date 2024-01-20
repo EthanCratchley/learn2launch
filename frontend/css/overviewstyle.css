@@ -41,6 +41,50 @@ nav button:hover {
     background-color: #45a049;
 }
 
+/* Feature Box */
+.feature-box {
+    background-color: #f4f8ff;
+    padding: 50px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.feature-box h1 {
+    color: #1a8cff;
+    margin-bottom: 30px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.button-group button {
+    background-color: #1a8cff; /* Blue color */
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px; /* Space between buttons */
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.button-group button:hover {
+    background-color: #1571cc; /* Slightly darker blue */
+}
+
+.description {
+    color: #333;
+    max-width: 700px;
+    margin: 0 auto; /* Center the description */
+    font-size: 1em;
+}
+
 /* Logo Box */
 .logo-box {
     background-color: #f4f8ff;
