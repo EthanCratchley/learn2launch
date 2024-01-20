@@ -1,34 +1,25 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
-const passport = require('passport');
 const session = require('express-session');
+const passport = require('passport');
 const cors = require('cors');
-const path = require('path');
 require('dotenv').config();
 
-// Passport Config
-require('./config/passport')(passport);
+const app = express();
 
-// DB Config
-const db = require('./config/keys').mongoURI;
-
-console.log(process.env.MONGODB_URI); // This should output your MongoDB URI
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
-const app = express();
+// Passport Config
+require('./config/passport')(passport);
 
-// CORS Middleware
-app.use(cors());
-
-// Bodyparser Middleware
-app.use(express.urlencoded({ extended: false }));
+// Express body parser
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Express Session Middleware
+// Express session
 app.use(
   session({
     secret: 'secret',
@@ -37,24 +28,19 @@ app.use(
   })
 );
 
-// Passport Middleware
+// Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+// CORS middleware
+app.use(cors());
 
 // Routes
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 
-// Serve static assets if in production
-if (process.env.NODE_ENV === 'production') {
-  // Set static folder
-  app.use(express.static(path.join(__dirname, 'frontend')));
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'frontend', 'pages', 'index.html'));
-  });  
-}
+// Static folder for frontend
+app.use(express.static('../frontend'));
 
 const PORT = process.env.PORT || 5001;
-
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
