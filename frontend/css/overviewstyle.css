@@ -1,0 +1,101 @@
+body {
+    font-family: 'Fredoka', sans-serif;
+}
+
+h1 {
+    font-family: 'Fredoka', sans-serif;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header and Nav */
+header {
+    background-color: #f0f8ff;
+    margin-bottom: 20px;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo a {
+    text-decoration: none;
+    color: #1a8cff;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+nav button {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background-color: #45a049;
+}
+
+/* Logo Box */
+.logo-box {
+    background-color: #f4f8ff;
+    padding: 75px; /* Adjust the padding to your preference */
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; /* Add margin for spacing */
+    max-width: 800px; /* Set a maximum width for the logo box */
+}
+
+.logo-box h1 {
+    color: #1a8cff; 
+    font-size: 5em;
+    margin-bottom: 10px;
+}
+
+.logo-box h2 {
+    color: #1a8cff; 
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.logo-box p {
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background-color: #f0f8ff;
+    color: #333;
+    text-align: center;
+    padding: 20px 0;
+    position: flex;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .social-links a {
+    margin: 0 10px;
+}
+
+footer .social-links img {
+    width: 30px;
+    height: auto;
+}
+
+footer button {
+    background-color: #008CBA; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+footer button:hover {
+    background-color: #007BBA;
+}

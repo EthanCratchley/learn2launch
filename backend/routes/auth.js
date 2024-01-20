@@ -53,9 +53,16 @@ router.post('/login', (req, res, next) => {
 
 // Logout user
 router.get('/logout', (req, res) => {
-    req.logout();
-    req.session.destroy(); // Make sure to destroy the session
-    res.status(200).json({ message: "Successfully logged out" });
+    req.logout(function(err) {
+        if (err) { 
+            console.error('Logout error', err);
+            return res.status(500).json({ message: 'Logout failed' });
+        }
+        // Destroy the session after logging out
+        req.session.destroy(() => {
+            res.status(200).json({ message: 'Logout successful' });
+        });
+    });
 });
 
 module.exports = router;
