@@ -1,3 +1,5 @@
+let yourFlashcardsData = [];
+
 document.getElementById('generateFlashcardsBtn').addEventListener('click', () => {
     const topic = document.getElementById('flashcardTopicInput').value;
     if (!topic) {
@@ -30,6 +32,7 @@ document.getElementById('generateFlashcardsBtn').addEventListener('click', () =>
 function displayFlashcards(flashcards) {
     const displayArea = document.getElementById('flashcardDisplayArea');
     displayArea.innerHTML = ''; // Clear existing content
+    yourFlashcardsData = flashcards; // Update the global variable
 
     flashcards.forEach(card => {
         const cardElement = document.createElement('div');
@@ -49,5 +52,29 @@ function displayFlashcards(flashcards) {
     });
 }
 
-  
-  
+function downloadFlashcardsAsPdf() {
+    fetch('/api/downloadFlashcards', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ flashcards: yourFlashcardsData })
+    })
+    .then(response => response.blob())
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = 'flashcards.pdf';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+document.getElementById('downloadPdfBtn').addEventListener('click', function() {
+    downloadFlashcardsAsPdf();
+});
