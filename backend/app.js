@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const cors = require('cors');
-require('dotenv').config();
-
 const app = express();
+const path = require('path');
+require('dotenv').config();
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI)
@@ -14,6 +14,16 @@ mongoose.connect(process.env.MONGODB_URI)
 
 // Passport Config
 require('./config/passport')(passport);
+
+function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+      return next();
+    }
+    res.redirect('/signin'); // Replace with your sign-in route if different
+  }
+
+// Serve static files from the 'frontend' directory
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
@@ -35,12 +45,13 @@ app.use(passport.session());
 // CORS middleware
 app.use(cors());
 
+app.get('/userhome', ensureAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/pages/overview.html'));
+  });  
+
 // Routes
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
-
-// Static folder for frontend
-app.use(express.static('../frontend'));
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));

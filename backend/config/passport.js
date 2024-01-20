@@ -8,14 +8,12 @@ module.exports = function(passport) {
       try {
         // Match user
         const user = await User.findOne({ email: email });
-
         if (!user) {
           return done(null, false, { message: 'That email is not registered' });
         }
 
         // Match password
         const isMatch = await bcrypt.compare(password, user.password);
-
         if (isMatch) {
           return done(null, user);
         } else {
@@ -37,33 +35,3 @@ module.exports = function(passport) {
     });
   });
 };
-
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const formData = { email, password };
-
-    fetch('http://127.0.0.1:5001/api/auth/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.message) {
-            alert(data.message);
-        }
-        if (data.success) {
-            // Redirect user to home page or dashboard
-            window.location.href = '/userhome'; // Change this to the correct path
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-});
-

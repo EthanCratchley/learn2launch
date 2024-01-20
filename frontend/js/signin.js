@@ -12,21 +12,17 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         },
         body: JSON.stringify(formData),
     })
-    .then(async response => {
-        const data = await response.json();
-        if (!response.ok) {
-            // Use the message from the server or a default one
-            const errorMessage = data.message || 'An error occurred';
-            throw new Error(errorMessage);
-        }
-        return data; // If successful, proceed with the response data
-    })
+    .then(response => response.json())
     .then(data => {
-        // Handle the successful response here, e.g., redirect to a user dashboard
-        alert(data.message); // Display the success message from server
-    })
+        if (data.success) {
+          // Redirect user to home page or dashboard
+          window.location.href = '/userhome'; // Adjust the path as needed
+        } else {
+          // Handle failed login attempt here, e.g., show an error message
+          alert(data.message || 'Login failed.');
+        }
+      })
     .catch(error => {
         console.error('Error:', error);
-        alert('Login failed: ' + error.message); // Display the failure message
     });
 });
