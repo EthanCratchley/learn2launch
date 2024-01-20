@@ -1,5 +1,4 @@
 const express = require('express');
-const User = require('../models/User'); // Adjust the path according to your structure
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
