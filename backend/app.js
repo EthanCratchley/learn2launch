@@ -15,13 +15,6 @@ mongoose.connect(process.env.MONGODB_URI)
 // Passport Config
 require('./config/passport')(passport);
 
-function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-      return next();
-    }
-    res.redirect('/signin'); // Replace with your sign-in route if different
-  }
-
 // Serve static files from the 'frontend' directory
 app.use(express.static(path.join(__dirname, '../frontend')));
 
@@ -45,11 +38,16 @@ app.use(passport.session());
 // CORS middleware
 app.use(cors());
 
-app.get('/userhome', ensureAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/pages/overview.html'));
-  });  
-
 // Routes
+app.get('/signin', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/pages/signin.html'));
+});
+
+app.get('/userhome', (req, res) => {
+    // This route is now unprotected for demonstration purposes
+    res.sendFile(path.join(__dirname, '../frontend/pages/overview.html'));
+});  
+
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 
