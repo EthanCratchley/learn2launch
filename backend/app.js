@@ -34,6 +34,9 @@ app.get('/userhome', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/pages/overview.html'));
 });
 
+const quizRoutes = require('./routes/quizRoute');
+app.use('/api', quizRoutes);
+
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 

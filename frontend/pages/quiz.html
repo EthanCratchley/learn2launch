@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <link rel="icon" href="../assets/logo.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flashcards Generator</title>
+    <title>Quiz Generator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/flashcards.css">
+    <link rel="stylesheet" href="../css/quiz.css">
 </head>
 <body>
     <header>
@@ -23,16 +23,13 @@
         </div>
     </header>
 
-    <div class="flashcard-container">
-        <h2>Generate AI Flashcards</h2>
-        <button id="downloadPdfBtn">Download as PDF</button>
-        <div id="flashcardDisplayArea"></div> 
-        <div class="input-area">
-            <textarea id="flashcardTopicInput" placeholder="Enter a topic to generate flashcards"></textarea>
-            <button id="generateFlashcardsBtn">Generate</button>
-        </div>
+    <div class="content-container">
+        <h1>Quiz Creator</h1>
+        <button id="generateQuizBtn">Generate Quiz</button>
+        <div id="quizDisplayArea"></div>
+        <textarea id="quizInput" placeholder="Enter your topic here..."></textarea>
     </div>
-    
+
     <footer>
         <p>a Ethan Cratchley production</p>
         <div class="social-links">
@@ -42,6 +39,6 @@
             <a href="contact.html"><button>Contact Support</button></a>
         </div>
     </footer>
-    <script src="../js/flashcard.js"></script>
+    <script src="../js/quiz.js"></script>
 </body>
 </html>

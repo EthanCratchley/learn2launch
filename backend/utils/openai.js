@@ -46,4 +46,47 @@ function parseResponseToFlashcards(responseText) {
     return flashcards;
 }
 
-module.exports = { generateFlashcards };
+async function generateQuiz(topic) {
+    try {
+        const response = await openai.completions.create({
+            model: "gpt-3.5-turbo-instruct",
+            prompt: `Create a quiz for the following topic: ${topic}. Provide 10 questions with their answers.`,
+            max_tokens: 700,
+            n: 1,
+        });
+
+        console.log('API Response:', response);
+
+        if (typeof response.choices[0].text === 'string') {
+            const quiz = parseResponseToQuiz(response.choices[0].text);
+            return quiz;
+        } else {
+            throw new Error('Invalid response format from OpenAI API');
+        }
+    } catch (error) {
+        console.error('Error with the OpenAI API:', error);
+        throw error;
+    }
+}
+
+function parseResponseToQuiz(responseText) {
+    if (typeof responseText !== 'string') {
+        throw new Error('Expected a string for parsing quiz');
+    }
+
+    const quizQuestionsRaw = responseText.trim().split('\n\n');
+    const quiz = quizQuestionsRaw.map(questionText => {
+        const lines = questionText.trim().split('\n');
+        if (lines.length >= 2) {
+            return {
+                question: lines[0].replace('Question:', '').trim(),
+                answer: lines[1].replace('Answer:', '').trim()
+            };
+        }
+        return null; 
+    }).filter(question => question !== null); 
+
+    return quiz;
+}
+
+module.exports = { generateFlashcards, generateQuiz };
