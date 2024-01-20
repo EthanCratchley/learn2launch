@@ -42,6 +42,22 @@ nav button:hover {
 }
 
 /* Flashcards */
+.flashcard {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.flashcard-question {
+    font-weight: bold;
+}
+
+.flashcard-answer {
+    margin-top: 5px;
+}
+
 .flashcard-container {
     display: flex;
     flex-direction: column;
