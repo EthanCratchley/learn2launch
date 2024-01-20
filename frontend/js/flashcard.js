@@ -30,14 +30,18 @@ document.getElementById('generateFlashcardsBtn').addEventListener('click', () =>
 function displayFlashcards(flashcards) {
     const displayArea = document.getElementById('flashcardDisplayArea');
     displayArea.innerHTML = ''; // Clear previous flashcards
-
+  
     flashcards.forEach(card => {
-        const cardElement = document.createElement('div');
-        cardElement.className = 'flashcard';
-        cardElement.innerHTML = `
-            <div class="flashcard-question">${card.question}</div>
-            <div class="flashcard-answer">${card.answer}</div>
-        `;
-        displayArea.appendChild(cardElement);
+      if (card.question && card.answer) {
+        // Your existing code to create and append flashcard elements
+      } else {
+        console.log('Incomplete flashcard data:', card);
+        // Display a message or handle the incomplete data
+        const errorMessage = document.createElement('div');
+        errorMessage.textContent = 'Flashcard data is incomplete. Please try again.';
+        displayArea.appendChild(errorMessage);
+      }
     });
-}
+  }
+  
+  

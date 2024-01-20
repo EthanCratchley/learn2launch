@@ -1,16 +1,17 @@
 const { OpenAI } = require('openai');
-console.log(process.env.OPENAI_API_KEY); // Should output the actual API key
 const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
 async function generateFlashcards(prompt) {
   try {
     const response = await openai.completions.create({
-      model: "gpt-3.5-turbo-instruct",
-      prompt: `Create flashcards for the following topic: ${prompt}\n\n`,
-      max_tokens: 300,
-      n: 1,
-      stop: ["\n", "Question:", "Answer:"],
+        model: "gpt-3.5-turbo-instruct",
+        prompt: `Create flashcards for the following topic: ${prompt}. Each flashcard should have a clear question and a corresponding answer.`,
+        max_tokens: 350,
+        n: 1,
+        //stop: ["\nQuestion:", "\nAnswer:"]
     });
+      
+      console.log('API Response:', response); 
 
     const flashcards = parseResponseToFlashcards(response.choices);
     return flashcards;
@@ -21,10 +22,17 @@ async function generateFlashcards(prompt) {
 }
 
 function parseResponseToFlashcards(choices) {
-  return choices.map(choice => {
-    const parts = choice.text.trim().split('\n');
-    return { question: parts[0], answer: parts[1] };
-  });
-}
+    return choices.map(choice => {
+      const parts = choice.text.trim().split('\n');
+      if (parts.length < 2) {
+        console.log('Incomplete flashcard parts:', parts);
+        // Handle the incomplete data or return a placeholder
+        return { question: 'Undefined', answer: 'Undefined' };
+      }
+      return { question: parts[0], answer: parts[1] };
+    });
+  }
+  
+  
 
 module.exports = { generateFlashcards };
