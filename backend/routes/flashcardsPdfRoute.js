@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const PDFDocument = require('pdfkit'); // You'll need to install pdfkit
+const PDFDocument = require('pdfkit'); 
 
 router.post('/downloadFlashcards', (req, res) => {
-    const flashcards = req.body.flashcards; // Assuming flashcards are sent in the request
+    const flashcards = req.body.flashcards; 
 
     // Create a PDF document
     const doc = new PDFDocument();

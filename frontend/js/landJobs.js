@@ -27,7 +27,7 @@ document.getElementById('generatePlanBtn').addEventListener('click', function() 
 });
 
 document.getElementById('downloadPdfBtn').addEventListener('click', function() {
-    const jobPlanText = document.getElementById('planOutput').textContent; // Assuming 'planOutput' is the ID of your output element
+    const jobPlanText = document.getElementById('planOutput').textContent; 
 
     fetch('/api/downloadJobPlan', {
         method: 'POST',

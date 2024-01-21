@@ -8,7 +8,7 @@ const CRACKEDDEVS_BASE_URL = 'https://api.crackeddevs.com/api/get-jobs';
 router.get('/searchJobs', async (req, res) => {
     try {
         const { keyword, min_salary, max_salary, job_type, skill_levels, degree_required, technologies } = req.query;
-        let query = `?limit=10`; // You can adjust the limit or make it dynamic
+        let query = `?limit=10`; 
 
         if (keyword) query += `&keyword=${encodeURIComponent(keyword)}`;
         if (min_salary) query += `&min_salary=${min_salary}`;

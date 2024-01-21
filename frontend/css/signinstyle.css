@@ -59,6 +59,6 @@ button:hover {
 .auth-options a {
     color: #1a8cff;
     text-decoration: none;
-    display: block; /* or 'inline' based on preference */
+    display: block; 
     margin: 5px 0;
 }

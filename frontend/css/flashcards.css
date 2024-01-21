@@ -82,33 +82,32 @@ nav button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh; /* Use the full height of the viewport */
-    padding-top: 50px; /* Adjust the padding as necessary */
-    padding-bottom: 50px; /* Adjust the padding as necessary */
+    min-height: 100vh; 
+    padding-top: 50px; 
+    padding-bottom: 50px; 
 }
 
 #flashcardDisplayArea {
-    width: 100%; /* Adjust width as necessary */
-    margin-bottom: 30px; /* Space between flashcards and the input area */
-    /* Additional styling for flashcards */
+    width: 100%; 
+    margin-bottom: 30px; 
 }
 
 .input-area {
-    width: 80%; /* Adjust width as necessary */
-    max-width: 500px; /* Set a max-width for larger screens */
-    margin-top: auto; /* Push the input area to the bottom */
+    width: 80%; 
+    max-width: 500px; 
+    margin-top: auto; 
     text-align: center;
 }
 
 #flashcardTopicInput {
     width: 100%;
-    height: 150px; /* Set the height of the textarea */
+    height: 150px; 
     margin-bottom: 20px;
     padding: 10px;
-    box-sizing: border-box; /* Include padding in the width calculation */
-    border-radius: 5px; /* Rounded corners */
-    border: 1px solid #ccc; /* A subtle border */
-    resize: vertical; /* Allow vertical resizing */
+    box-sizing: border-box; 
+    border-radius: 5px; 
+    border: 1px solid #ccc; 
+    resize: vertical; 
 }
 
 #generateFlashcardsBtn {
@@ -116,29 +115,25 @@ nav button:hover {
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px; /* Rounded corners */
+    border-radius: 5px; 
     cursor: pointer;
     font-size: 1em;
-    transition: background-color 0.3s ease; /* Smooth background color change on hover */
+    transition: background-color 0.3s ease; 
 }
 
 #generateFlashcardsBtn:hover {
     background-color: #45a049;
 }
 
-/* Ensure body has no margin to align the container properly */
 body, html {
     margin: 0;
     height: 100%;
-    /* Continue with the rest of your styles */
 }
 
-/* Add media queries if necessary for responsiveness */
 @media (max-width: 768px) {
     .input-area {
         width: 95%;
     }
-    /* Adjust styles for smaller screens */
 }
 
 

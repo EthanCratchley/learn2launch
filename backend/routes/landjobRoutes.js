@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { generatePlanForJob } = require('../utils/openai'); // You need to create this function
+const { generatePlanForJob } = require('../utils/openai'); 
 
 router.post('/generatePlan', async (req, res) => {
     try {

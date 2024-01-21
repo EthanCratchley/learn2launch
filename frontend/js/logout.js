@@ -1,4 +1,3 @@
-// Ensure this script is only included on pages where logout should be possible
 document.getElementById('logoutBtn').addEventListener('click', function(e) {
     e.preventDefault();
 
@@ -11,7 +10,7 @@ document.getElementById('logoutBtn').addEventListener('click', function(e) {
         })
         .then(data => {
             alert(data.message);
-            window.location.href = '/signin'; // Adjust this as necessary
+            window.location.href = '/signin'; 
         })
         .catch(error => {
             console.error('Error:', error);

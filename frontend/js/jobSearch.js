@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function buildApiUrl(keyword, minSalary, maxSalary, jobType, skillLevel, degreeRequired, technologies) {
-        let url = 'http://127.0.0.1:5001/api/searchJobs?'; // Replace with your server URL and endpoint
+        let url = 'http://127.0.0.1:5001/api/searchJobs?'; 
         const params = new URLSearchParams();
 
         if (keyword) params.append('keyword', keyword);

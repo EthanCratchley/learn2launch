@@ -4,7 +4,7 @@ body {
 
 h1, h3 {
     font-family: 'Fredoka', sans-serif;
-    text-align: center; /* Center all h1 and h3 elements */
+    text-align: center;
 }
 
 body, html {
@@ -25,7 +25,6 @@ body, html {
 
 .readbtn:hover {
     background-color: #45a049;
-    /* ... other hover styles ... */
 }
 
 /* Header and Nav */
@@ -128,8 +127,8 @@ form#jobSearchForm {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* Adjust as needed */
-    padding: 20px; /* Add padding around the entire form */
+    gap: 10px; 
+    padding: 20px; 
 }
 
 form#jobSearchForm input[type="text"],
@@ -163,7 +162,6 @@ form#jobSearchForm button:hover {
 
 /* Footer */
 footer {
-    /* Same style as in flashcards.css */
     background-color: #f0f8ff;
     color: #333;
     text-align: center;

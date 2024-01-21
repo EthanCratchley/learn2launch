@@ -45,7 +45,7 @@ nav button:hover {
 .content-container {
     text-align: center;
     width: 80%;
-    max-width: 600px; /* Adjust as per your need */
+    max-width: 600px; 
     margin: auto;
 }
 
@@ -54,7 +54,7 @@ nav button:hover {
     color: white;
     border: none;
     padding: 10px 20px;
-    margin-bottom: 20px; /* Space between button and output area */
+    margin-bottom: 20px; 
     cursor: pointer;
     font-size: 1em;
     border-radius: 5px;
@@ -65,12 +65,12 @@ nav button:hover {
 }
 
 #quizDisplayArea {
-    margin-bottom: 10px; /* Space for quiz output */
+    margin-bottom: 10px; 
 }
 
 #quizInput {
     width: 100%;
-    height: 100px; /* Smaller text area */
+    height: 100px; 
     margin-top: 20px;
     padding: 10px;
     border-radius: 5px;
@@ -82,11 +82,10 @@ nav button:hover {
 /* Download PDF Button */
 .download-pdf-container {
     text-align: right;
-    padding: 10px 20px; /* Adjust padding as needed */
+    padding: 10px 20px; 
 }
 
 #downloadQuizPdfBtn {
-    /* Styles for the button (you can reuse the styles from flashcards.css) */
     background-color: #4CAF50; 
     color: white;
     padding: 10px 20px;
@@ -103,7 +102,6 @@ nav button:hover {
 
 /* Footer */
 footer {
-    /* Same style as in flashcards.css */
     background-color: #f0f8ff;
     color: #333;
     text-align: center;

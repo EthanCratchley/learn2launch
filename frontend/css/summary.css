@@ -67,30 +67,29 @@ nav button:hover {
 #summaryDisplayArea {
     border: 1px solid #ddd;
     padding: 15px;
-    margin: 20px 0; /* Add margin for spacing */
+    margin: 20px 0; 
     background-color: #f9f9f9;
     min-height: 100px;
 }
 
 #summaryTopicInput {
     width: 100%;
-    height: 50px; /* Smaller height for the text area */
+    height: 50px; 
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     resize: vertical;
-    margin-top: 20px; /* Spacing above the text area */
-    margin-bottom: 50px; /* Spacing above the text area */
+    margin-top: 20px; 
+    margin-bottom: 50px; 
 }
 
 /* Download PDF Button */
 .download-pdf-container {
     text-align: right;
-    padding: 10px 20px; /* Adjust padding as needed */
+    padding: 10px 20px; 
 }
 
 #downloadSummaryPdfBtn {
-    /* Styles for the button (similar to quiz.css) */
     background-color: #4CAF50; 
     color: white;
     padding: 10px 20px;
@@ -107,7 +106,6 @@ nav button:hover {
 
 /* Footer */
 footer {
-    /* Same style as in flashcards.css */
     background-color: #f0f8ff;
     color: #333;
     text-align: center;
