@@ -39,23 +39,44 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => console.error('Error:', error));
     }
 
+    function createJobElement(job) {
+        const jobElement = document.createElement('div');
+        jobElement.className = 'job';
+    
+        const title = document.createElement('h3');
+        title.textContent = `${job.title} at ${job.company}`;
+        jobElement.appendChild(title);
+    
+        const description = document.createElement('p');
+        description.textContent = job.description;
+        description.className = 'job-description';
+        jobElement.appendChild(description);
+    
+        const moreInfoLink = document.createElement('a');
+        moreInfoLink.href = job.url;
+        moreInfoLink.textContent = 'View Job';
+        moreInfoLink.target = '_blank';
+        moreInfoLink.className = 'view-job-link';
+        jobElement.appendChild(moreInfoLink);
+    
+        // Add other job details as needed
+    
+        return jobElement;
+    }
+    
     function displayJobs(jobs) {
+        const jobResultsDiv = document.getElementById('jobResults');
         jobResultsDiv.innerHTML = ''; // Clear previous results
+    
         jobs.forEach(job => {
-            const jobElement = document.createElement('div');
-            jobElement.className = 'job';
-            jobElement.innerHTML = `
-                <h3>${job.title} at ${job.company}</h3>
-                <p>${job.description}</p>
-                <a href="${job.url}" target="_blank">View Job</a>
-            `;
+            const jobElement = createJobElement(job);
             jobResultsDiv.appendChild(jobElement);
         });
     }
+    
+    function getCheckedValues(name) {
+        return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
+                    .map(input => input.value)
+                    .join(',');
+    }
 });
-
-function getCheckedValues(name) {
-    return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
-                .map(input => input.value)
-                .join(',');
-}

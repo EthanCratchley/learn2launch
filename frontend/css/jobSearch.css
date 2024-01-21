@@ -69,10 +69,35 @@ nav button:hover {
 
 .job {
     border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
     border-radius: 5px;
     background-color: #f9f9f9;
+}
+
+.job h3 {
+    color: #1a8cff;
+    margin-bottom: 10px;
+}
+
+.job-description {
+    color: #333;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.view-job-link {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.view-job-link:hover {
+    background-color: #45a049;
 }
 
 .job h3 {
