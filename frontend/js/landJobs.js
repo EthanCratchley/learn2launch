@@ -25,3 +25,28 @@ document.getElementById('generatePlanBtn').addEventListener('click', function() 
         alert('Failed to generate plan. Please try again.');
     });
 });
+
+document.getElementById('downloadPdfBtn').addEventListener('click', function() {
+    const jobPlanText = document.getElementById('planOutput').textContent; // Assuming 'planOutput' is the ID of your output element
+
+    fetch('/api/downloadJobPlan', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: jobPlanText })
+    })
+    .then(response => response.blob())
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = 'job-plan.pdf';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    })
+    .catch(error => console.error('Error:', error));
+});

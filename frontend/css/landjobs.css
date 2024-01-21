@@ -97,6 +97,29 @@ nav button:hover {
     }
 }
 
+/* Download PDF Button Container */
+.download-pdf-container {
+    text-align: right; /* Align the container's content to the right */
+    padding: 10px 20px; /* Add some padding */
+    margin-top: 20px; /* Optional: Add margin if needed */
+}
+
+/* Download PDF Button Styling */
+#downloadPdfBtn {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor changes to pointer on hover */
+    font-size: 1em; /* Font size */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+#downloadPdfBtn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
 /* Footer */
 footer {
     /* Same style as in flashcards.css */

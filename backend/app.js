@@ -8,6 +8,7 @@ const path = require('path');
 const quizPdfRoute = require('./routes/quizPdfRoute');
 const jobRoutes = require('./routes/jobRoutes'); 
 const landjobRoutes = require('./routes/landjobRoutes'); 
+const jobPlanPdfRoute = require('./routes/jobPlanPdfRoute');
 require('dotenv').config();
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -25,6 +26,7 @@ app.use(cors());
 app.use('/api', quizPdfRoute);
 app.use('/api', jobRoutes);
 app.use('/api', landjobRoutes);
+app.use(jobPlanPdfRoute);
 
 
 app.get('/signin', (req, res) => {
