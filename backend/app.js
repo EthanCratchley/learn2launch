@@ -32,6 +32,9 @@ app.use('/api', flashcardRoutes);
 const flashcardsPdfRoute = require('./routes/flashcardsPdfRoute');
 app.use('/api', flashcardsPdfRoute);
 
+const summaryRoutes = require('./routes/summaryRoutes');
+app.use('/api', summaryRoutes);
+
 app.get('/userhome', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/pages/overview.html'));
 });

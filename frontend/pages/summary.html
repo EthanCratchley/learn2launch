@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../assets/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/summary.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">Learn2Launch</a>
+        </div>
+        <nav>
+            <button onclick="location.href='support.html'">Support</button>
+            <button id="logoutBtn">Logout</button>
+        </nav>
+    </header>
+
+    <div class="content-container">
+        <h1>Summary Creator</h1>
+        <button id="generateSummaryBtn">Generate Summary</button>
+        <div id="summaryDisplayArea"></div>
+        <textarea id="summaryTopicInput" placeholder="Enter your topic here..."></textarea>
+    </div>
+
+    <footer>
+        <p>a Ethan Cratchley Production</p>
+        <div class="social-links">
+            <a href="https://github.com/EthanCratchley/learn2launch"><img src="../assets/github.png" alt="GitHub"></a>
+            <a href="https://www.linkedin.com/in/ethan-cratchley/"><img src="../assets/linkedin.png" alt="LinkedIn"></a>
+            <a href="mailto:ethankcratchley@gmail.com"><img src="../assets/email.png" alt="Email"></a>
+            <a href="contact.html"><button>Contact Support</button></a>
+        </div>
+    </footer>
+    <script src="../js/summary.js"></script>
+</body>
+</html>

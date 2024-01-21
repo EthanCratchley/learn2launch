@@ -1,0 +1,123 @@
+body {
+    font-family: 'Fredoka', sans-serif;
+}
+
+h1 {
+    font-family: 'Fredoka', sans-serif;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header and Nav */
+header {
+    background-color: #f0f8ff;
+    margin-bottom: 20px;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo a {
+    text-decoration: none;
+    color: #1a8cff;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+nav button {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background-color: #45a049;
+}
+
+/* Summary Container */
+.content-container {
+    text-align: center;
+    margin: auto;
+    max-width: 600px;
+    padding-top: 10vh; /* Add vertical padding to center content */
+}
+
+#generateSummaryBtn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#generateSummaryBtn:hover {
+    background-color: #45a049;
+}
+
+#summaryDisplayArea {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 20px 0; /* Add margin for spacing */
+    background-color: #f9f9f9;
+    min-height: 100px;
+}
+
+#summaryTopicInput {
+    width: 100%;
+    height: 50px; /* Smaller height for the text area */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    margin-top: 20px; /* Spacing above the text area */
+    margin-bottom: 50px; /* Spacing above the text area */
+}
+
+/* Footer */
+footer {
+    /* Same style as in flashcards.css */
+    background-color: #f0f8ff;
+    color: #333;
+    text-align: center;
+    padding: 20px 0;
+    position: flex;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .social-links a {
+    margin: 0 10px;
+}
+
+footer .social-links img {
+    width: 30px;
+    height: auto;
+}
+
+footer button {
+    background-color: #008CBA; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+footer button:hover {
+    background-color: #007BBA;
+}
+
+@media (max-width: 768px) {
+    .input-area {
+        width: 95%;
+    }
+}

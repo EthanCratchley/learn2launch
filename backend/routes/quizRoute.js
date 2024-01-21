@@ -1,5 +1,5 @@
 const express = require('express');
-const { generateQuiz } = require('../utils/openai'); // Assuming you have a similar setup as for flashcards
+const { generateQuiz } = require('../utils/openai'); 
 const router = express.Router();
 
 router.post('/generateQuiz', async (req, res) => {

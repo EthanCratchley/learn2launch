@@ -89,4 +89,21 @@ function parseResponseToQuiz(responseText) {
     return quiz;
 }
 
-module.exports = { generateFlashcards, generateQuiz };
+async function generateSummary(topic) {
+    try {
+        const response = await openai.completions.create({
+            model: "gpt-3.5-turbo-instruct",
+            prompt: `Write a comprehensive summary about the following topic: ${topic}`,
+            max_tokens: 1000, // Adjust token limit as needed
+            n: 1
+        });
+
+        // Process the response and return the summary text
+        return response.choices[0].text.trim();
+    } catch (error) {
+        console.error('Error with the OpenAI API:', error);
+        throw error;
+    }
+}
+
+module.exports = { generateFlashcards, generateQuiz, generateSummary };
