@@ -46,7 +46,7 @@ nav button:hover {
     text-align: center;
     margin: auto;
     max-width: 600px;
-    padding-top: 10vh; /* Add vertical padding to center content */
+    padding-top: 1vh; 
 }
 
 #generateSummaryBtn {
@@ -81,6 +81,28 @@ nav button:hover {
     resize: vertical;
     margin-top: 20px; /* Spacing above the text area */
     margin-bottom: 50px; /* Spacing above the text area */
+}
+
+/* Download PDF Button */
+.download-pdf-container {
+    text-align: right;
+    padding: 10px 20px; /* Adjust padding as needed */
+}
+
+#downloadSummaryPdfBtn {
+    /* Styles for the button (similar to quiz.css) */
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+#downloadSummaryPdfBtn:hover {
+    background-color: #45a049;
 }
 
 /* Footer */
