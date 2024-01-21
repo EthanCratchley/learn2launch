@@ -4,39 +4,31 @@
     <meta charset="UTF-8">
     <link rel="icon" href="../assets/logo.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Generator</title>
+    <title>Search Jobs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/quiz.css">
+    <link rel="stylesheet" href="../css/jobSearch.css">
 </head>
 <body>
     <header>
         <div class="logo">
             <a href="../index.html">Learn2Launch</a>
         </div>
-            <nav>
-                <button onclick="location.href='support.html'">Support</button>
-                <button id="logoutBtn">Logout</button>
-            </nav>
-            </div>
-        </div>
+        <nav>
+            <button onclick="location.href='support.html'">Support</button>
+            <button id="logoutBtn">Logout</button>
+        </nav>
     </header>
 
-    <div class="download-pdf-container">
-        <button id="downloadQuizPdfBtn">Download as PDF</button>
-    </div>
-
     <div class="content-container">
-        <h1>Quiz Creator</h1>
-        <button id="generateQuizBtn">Generate Quiz</button>
-        <div id="quizDisplayArea"></div>
-        <textarea id="quizInput" placeholder="Enter your topic here..."></textarea>
-        </div>
+        <h1>Job Search</h1>
+        <button id="searchJobsBtn">Search Jobs</button>
+        <div id="jobsContainer"></div>
     </div>
 
     <footer>
-        <p>a Ethan Cratchley production</p>
+        <p>a Ethan Cratchley Production</p>
         <div class="social-links">
             <a href="https://github.com/EthanCratchley/learn2launch"><img src="../assets/github.png" alt="GitHub"></a>
             <a href="https://www.linkedin.com/in/ethan-cratchley/"><img src="../assets/linkedin.png" alt="LinkedIn"></a>
@@ -45,6 +37,6 @@
         </div>
     </footer>
     <script src="../js/logout.js"></script>
-    <script src="../js/quiz.js"></script>
+    <script src="../js/jobSearch.js"></script>
 </body>
 </html>
