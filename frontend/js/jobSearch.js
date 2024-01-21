@@ -1,65 +1,61 @@
-document.getElementById('jobSearchForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const keyword = document.getElementById('keywordInput').value;
-    const minSalary = document.getElementById('minSalaryInput').value;
-    const maxSalary = document.getElementById('maxSalaryInput').value;
-    const jobType = document.getElementById('jobTypeSelect').value;
-    // Get other filter values
-
-    fetch(`/api/searchJobs?keyword=${keyword}&min_salary=${minSalary}&max_salary=${maxSalary}&job_type=${jobType}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            // Include other necessary headers
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        displayJobs(data);
-    })
-    .catch(error => console.error('Error:', error));
-});
-
-function displayJobs(jobs) {
+document.addEventListener('DOMContentLoaded', function() {
+    const jobSearchForm = document.getElementById('jobSearchForm');
     const jobResultsDiv = document.getElementById('jobResults');
-    jobResultsDiv.innerHTML = '';
-    
-    if (jobs.length === 0) {
-        jobResultsDiv.innerHTML = '<p>No jobs found.</p>';
-        return;
+
+    jobSearchForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const keyword = document.getElementById('keywordInput').value;
+        const minSalary = document.getElementById('minSalaryInput').value;
+        const maxSalary = document.getElementById('maxSalaryInput').value;
+        const jobTypes = getCheckedValues('jobType');
+        const skillLevels = getCheckedValues('skillLevel');
+        const degreeRequired = document.getElementById('degreeRequiredCheckbox').checked;
+        const technologies = getCheckedValues('technologies');
+
+        const apiUrl = buildApiUrl(keyword, minSalary, maxSalary, jobTypes, skillLevels, degreeRequired, technologies);
+        fetchJobs(apiUrl);
+    });
+
+    function buildApiUrl(keyword, minSalary, maxSalary, jobType, skillLevel, degreeRequired, technologies) {
+        let url = 'http://127.0.0.1:5001/api/searchJobs?'; // Replace with your server URL and endpoint
+        const params = new URLSearchParams();
+
+        if (keyword) params.append('keyword', keyword);
+        if (minSalary) params.append('min_salary', minSalary);
+        if (maxSalary) params.append('max_salary', maxSalary);
+        if (jobType) params.append('job_type', jobType);
+        if (skillLevel) params.append('skill_levels', skillLevel);
+        if (degreeRequired) params.append('degree_required', degreeRequired);
+        if (technologies) params.append('technologies', technologies);
+
+        return url + params.toString();
     }
 
-    jobs.forEach(job => {
-        const jobDiv = document.createElement('div');
-        jobDiv.className = 'job';
+    function fetchJobs(url) {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => displayJobs(data))
+            .catch(error => console.error('Error:', error));
+    }
 
-        const title = document.createElement('h3');
-        title.textContent = job.title;
-        jobDiv.appendChild(title);
+    function displayJobs(jobs) {
+        jobResultsDiv.innerHTML = ''; // Clear previous results
+        jobs.forEach(job => {
+            const jobElement = document.createElement('div');
+            jobElement.className = 'job';
+            jobElement.innerHTML = `
+                <h3>${job.title} at ${job.company}</h3>
+                <p>${job.description}</p>
+                <a href="${job.url}" target="_blank">View Job</a>
+            `;
+            jobResultsDiv.appendChild(jobElement);
+        });
+    }
+});
 
-        const company = document.createElement('p');
-        company.textContent = `Company: ${job.company}`;
-        jobDiv.appendChild(company);
-
-        const description = document.createElement('p');
-        description.textContent = job.description;
-        jobDiv.appendChild(description);
-
-        const salaryRange = document.createElement('p');
-        salaryRange.textContent = `Salary: ${job.min_salary_usd} - ${job.max_salary_usd}`;
-        jobDiv.appendChild(salaryRange);
-
-        const jobType = document.createElement('p');
-        jobType.textContent = `Job Type: ${job.job_type}`;
-        jobDiv.appendChild(jobType);
-
-        const link = document.createElement('a');
-        link.href = job.url;
-        link.textContent = 'View Job';
-        link.target = '_blank';
-        jobDiv.appendChild(link);
-
-        jobResultsDiv.appendChild(jobDiv);
-    });
+function getCheckedValues(name) {
+    return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
+                .map(input => input.value)
+                .join(',');
 }

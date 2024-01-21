@@ -2,8 +2,9 @@ body {
     font-family: 'Fredoka', sans-serif;
 }
 
-h1 {
+h1, h3 {
     font-family: 'Fredoka', sans-serif;
+    text-align: center; /* Center all h1 and h3 elements */
 }
 
 body, html {
@@ -80,6 +81,43 @@ nav button:hover {
 
 .job p {
     margin: 10px 0;
+}
+
+form#jobSearchForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Adjust as needed */
+    padding: 20px; /* Add padding around the entire form */
+}
+
+form#jobSearchForm input[type="text"],
+form#jobSearchForm input[type="number"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form#jobSearchForm label {
+    margin-right: 10px;
+}
+
+form#jobSearchForm button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form#jobSearchForm button:hover {
+    background-color: #45a049;
+}
+
+/* Job Results Styles */
+#jobResults {
+    margin-top: 20px;
 }
 
 /* Footer */

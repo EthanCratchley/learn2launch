@@ -23,65 +23,72 @@
 
     <form id="jobSearchForm">
         <input type="text" id="keywordInput" placeholder="Enter keywords...">
+
         <input type="number" id="minSalaryInput" placeholder="Min Salary">
         <input type="number" id="maxSalaryInput" placeholder="Max Salary">
-        <select id="jobTypeSelect">
-            <option value="">Select Job Type</option>
-            <option value="full_time">Full Time</option>
-            <option value="part_time">Part Time</option>
-            <option value="freelance">Freelance</option>
-            <option value="internship">Internship</option>
-            <option value="co_founder">Co-Founder</option>
-        </select>
-        <select id="jobSkillLevles">
-            <option value="">Select Skill Level</option>
-            <option value="full_time">Junior</option>
-            <option value="mid">Novice</option>
-            <option value="senior">Senior</option>
-        </select>
-        <select id="jobDegree">
-            <option value="">Select Skill Level</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select>
-        <select name="technologies" id="technologies">
-            <option value="">Technologies</option>
-            <option value="html">HTML</option>
-            <option value="css">CSS</option>
-            <option value="react">React</option>
-            <option value="vue">Vue</option>
-            <option value="angular">Angular</option>
-            <option value="node">Node.js</option>
-            <option value="python">Python</option>
-            <option value="typescript">TypeScript</option>
-            <option value="nextjs">Next.js</option>
-            <option value="javascript">JavaScript</option>
-            <option value="java">Java</option>
-            <option value="csharp">C#</option>
-            <option value="php">PHP</option>
-            <option value="go">Go</option>
-            <option value="rust">Rust</option>
-            <option value="swift">Swift</option>
-            <option value="kotlin">Kotlin</option>
-            <option value="sql">SQL</option>
-            <option value="mongodb">MongoDB</option>
-            <option value="postgres">PostgreSQL</option>
-            <option value="mysql">MySQL</option>
-            <option value="docker">Docker</option>
-            <option value="kubernetes">Kubernetes</option>
-            <option value="aws">AWS</option>
-            <option value="reactnative">React Native</option>
-            <option value="flutter">Flutter</option>
-            <option value="django">Django</option>
-            <option value="spring">Spring</option>
-            <option value="laravel">Laravel</option>
-            <option value="web3">Web3</option>
-            <option value="c++">C++</option>
-            <option value="graphql">GraphQL</option>
-            <option value="solidity">Solidity</option>
-        </select>
+
+        <div id="jobTypeCheckboxes">
+            <!-- Job Type Checkboxes -->
+            <h3>Job type</h3>
+            <label><input type="checkbox" value="full_time" name="jobType"> Full Time</label>
+            <label><input type="checkbox" value="part_time" name="jobType"> Part Time</label>
+            <label><input type="checkbox" value="freelance" name="jobType"> Freelance</label>
+            <label><input type="checkbox" value="internship" name="jobType"> Internship</label>
+            <label><input type="checkbox" value="co_founder" name="jobType"> Co-Founder</label>
+        </div>
+
+        <div id="skillLevelCheckboxes">
+            <!-- Skill Level Checkboxes -->
+            <h3>Skill Level</h3>
+            <label><input type="checkbox" value="junior" name="skillLevel"> Junior</label>
+            <label><input type="checkbox" value="mid" name="skillLevel"> Mid</label>
+            <label><input type="checkbox" value="senior" name="skillLevel"> Senior</label>
+        </div>
+
+        <!-- Degree Required Checkbox -->
+        <h3>Degree Required</h3>
+        <label><input type="checkbox" id="degreeRequiredCheckbox"> Degree Required</label>
+
+        <div id="technologiesCheckboxes">
+            <!-- Technologies Checkboxes -->
+            <h3>Technologies</h3>
+            <label><input type="checkbox" value="html" name="technologies"> HTML</label>
+            <label><input type="checkbox" value="css" name="technologies"> CSS</label>
+            <label><input type="checkbox" value="react" name="technologies"> React</label>
+            <label><input type="checkbox" value="vue" name="technologies"> Vue</label>
+            <label><input type="checkbox" value="angular" name="technologies"> Angular</label>
+            <label><input type="checkbox" value="node" name="technologies"> Node.js</label>
+            <label><input type="checkbox" value="python" name="technologies"> Python</label>
+            <label><input type="checkbox" value="typescript" name="technologies"> TypeScript</label>
+            <label><input type="checkbox" value="nextjs" name="technologies"> Next.js</label>
+            <label><input type="checkbox" value="javascript" name="technologies"> JavaScript</label>
+            <label><input type="checkbox" value="java" name="technologies"> Java</label>
+            <label><input type="checkbox" value="csharp" name="technologies"> C#</label>
+            <label><input type="checkbox" value="php" name="technologies"> PHP</label>
+            <label><input type="checkbox" value="go" name="technologies"> Go</label>
+            <label><input type="checkbox" value="rust" name="technologies"> Rust</label>
+            <label><input type="checkbox" value="swift" name="technologies"> Swift</label>
+            <label><input type="checkbox" value="kotlin" name="technologies"> Kotlin</label>
+            <label><input type="checkbox" value="sql" name="technologies"> SQL</label>
+            <label><input type="checkbox" value="mongodb" name="technologies"> MongoDB</label>
+            <label><input type="checkbox" value="postgres" name="technologies"> PostgreSQL</label>
+            <label><input type="checkbox" value="mysql" name="technologies"> MySQL</label>
+            <label><input type="checkbox" value="docker" name="technologies"> Docker</label>
+            <label><input type="checkbox" value="kubernetes" name="technologies"> Kubernetes</label>
+            <label><input type="checkbox" value="aws" name="technologies"> AWS</label>
+            <label><input type="checkbox" value="reactnative" name="technologies"> React Native</label>
+            <label><input type="checkbox" value="flutter" name="technologies"> Flutter</label>
+            <label><input type="checkbox" value="django" name="technologies"> Django</label>
+            <label><input type="checkbox" value="spring" name="technologies"> Spring</label>
+            <label><input type="checkbox" value="laravel" name="technologies"> Laravel</label>
+            <label><input type="checkbox" value="web3" name="technologies"> Web3</label>
+            <label><input type="checkbox" value="c++" name="technologies"> C++</label>
+            <label><input type="checkbox" value="graphql" name="technologies"> GraphQL</label>
+            <label><input type="checkbox" value="solidity" name="technologies"> Solidity</label>
+        </div>
         <button type="submit">Search</button>
     </form>
+
     <div id="jobResults"></div>
     
 
