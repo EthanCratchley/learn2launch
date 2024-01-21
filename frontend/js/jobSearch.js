@@ -1,34 +1,65 @@
-document.getElementById('searchJobsBtn').addEventListener('click', fetchJobs);
+document.getElementById('jobSearchForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-const API_KEY = 'fe1698b4-99f3-442c-9d60-a3372a8f13dd'; // Replace with your actual API key
+    const keyword = document.getElementById('keywordInput').value;
+    const minSalary = document.getElementById('minSalaryInput').value;
+    const maxSalary = document.getElementById('maxSalaryInput').value;
+    const jobType = document.getElementById('jobTypeSelect').value;
+    // Get other filter values
 
-async function fetchJobs() {
-    try {
-        const response = await fetch(`https://api.crackeddevs.com/api/get-jobs?limit=10`, {
-            headers: { 'api-key': API_KEY }
-        });
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+    fetch(`/api/searchJobs?keyword=${keyword}&min_salary=${minSalary}&max_salary=${maxSalary}&job_type=${jobType}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            // Include other necessary headers
         }
-        const jobs = await response.json();
-        displayJobs(jobs);
-    } catch (error) {
-        console.error('Error fetching jobs:', error);
-    }
-}
+    })
+    .then(response => response.json())
+    .then(data => {
+        displayJobs(data);
+    })
+    .catch(error => console.error('Error:', error));
+});
 
 function displayJobs(jobs) {
-    const jobsContainer = document.getElementById('jobsContainer');
-    jobsContainer.innerHTML = '';
+    const jobResultsDiv = document.getElementById('jobResults');
+    jobResultsDiv.innerHTML = '';
+    
+    if (jobs.length === 0) {
+        jobResultsDiv.innerHTML = '<p>No jobs found.</p>';
+        return;
+    }
 
     jobs.forEach(job => {
-        const jobElement = document.createElement('div');
-        jobElement.className = 'job';
-        jobElement.innerHTML = `
-            <h3>${job.title} at ${job.company}</h3>
-            <p>${job.description}</p>
-            <a href="${job.url}" target="_blank">View Job</a>
-        `;
-        jobsContainer.appendChild(jobElement);
+        const jobDiv = document.createElement('div');
+        jobDiv.className = 'job';
+
+        const title = document.createElement('h3');
+        title.textContent = job.title;
+        jobDiv.appendChild(title);
+
+        const company = document.createElement('p');
+        company.textContent = `Company: ${job.company}`;
+        jobDiv.appendChild(company);
+
+        const description = document.createElement('p');
+        description.textContent = job.description;
+        jobDiv.appendChild(description);
+
+        const salaryRange = document.createElement('p');
+        salaryRange.textContent = `Salary: ${job.min_salary_usd} - ${job.max_salary_usd}`;
+        jobDiv.appendChild(salaryRange);
+
+        const jobType = document.createElement('p');
+        jobType.textContent = `Job Type: ${job.job_type}`;
+        jobDiv.appendChild(jobType);
+
+        const link = document.createElement('a');
+        link.href = job.url;
+        link.textContent = 'View Job';
+        link.target = '_blank';
+        jobDiv.appendChild(link);
+
+        jobResultsDiv.appendChild(jobDiv);
     });
 }
