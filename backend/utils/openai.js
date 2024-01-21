@@ -104,6 +104,21 @@ async function generateSummary(topic) {
         console.error('Error with the OpenAI API:', error);
         throw error;
     }
-}
+}   
 
-module.exports = { generateFlashcards, generateQuiz, generateSummary };
+    async function generatePlanForJob(jobInfo) {
+        // Call to OpenAI API
+        const response = await openai.completions.create({
+            model: "gpt-3.5-turbo-instruct",
+            prompt: `Create a plan for preparing for an interview, creating a resume, or getting a job based on the following information:\n\n${jobInfo}`,
+            max_tokens: 300
+        });
+    
+        if (response && response.choices && response.choices.length > 0) {
+            return response.choices[0].text.trim();
+        } else {
+            throw new Error('Invalid response from OpenAI API');
+        }
+    }
+    
+module.exports = { generateFlashcards, generateQuiz, generateSummary, generatePlanForJob };

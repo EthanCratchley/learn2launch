@@ -48,9 +48,15 @@ document.addEventListener('DOMContentLoaded', function() {
         jobElement.appendChild(title);
     
         const description = document.createElement('p');
-        description.textContent = job.description;
+        description.textContent = truncateText(job.description, 200); // Truncate to 200 characters
         description.className = 'job-description';
         jobElement.appendChild(description);
+    
+        const readMoreBtn = document.createElement('button');
+        readMoreBtn.className = 'readbtn'; 
+        readMoreBtn.textContent = 'Read More';
+        readMoreBtn.onclick = () => toggleFullDescription(description, job.description);
+        jobElement.appendChild(readMoreBtn);
     
         const moreInfoLink = document.createElement('a');
         moreInfoLink.href = job.url;
@@ -59,11 +65,21 @@ document.addEventListener('DOMContentLoaded', function() {
         moreInfoLink.className = 'view-job-link';
         jobElement.appendChild(moreInfoLink);
     
-        // Add other job details as needed
-    
         return jobElement;
     }
     
+    function truncateText(text, maxLength) {
+        return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+    }
+    
+    function toggleFullDescription(element, fullText) {
+        if (element.textContent.endsWith('...')) {
+            element.textContent = fullText; // Show full text
+        } else {
+            element.textContent = truncateText(fullText, 200); // Collapse back
+        }
+    }
+     
     function displayJobs(jobs) {
         const jobResultsDiv = document.getElementById('jobResults');
         jobResultsDiv.innerHTML = ''; // Clear previous results

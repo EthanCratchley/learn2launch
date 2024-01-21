@@ -12,6 +12,22 @@ body, html {
     padding: 0;
 }
 
+.readbtn {
+    background-color: #2b44b5;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.readbtn:hover {
+    background-color: #45a049;
+    /* ... other hover styles ... */
+}
+
 /* Header and Nav */
 header {
     background-color: #f0f8ff;

@@ -7,6 +7,7 @@ const app = express();
 const path = require('path');
 const quizPdfRoute = require('./routes/quizPdfRoute');
 const jobRoutes = require('./routes/jobRoutes'); 
+const landjobRoutes = require('./routes/landjobRoutes'); 
 require('dotenv').config();
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -23,6 +24,8 @@ app.use(passport.session());
 app.use(cors());
 app.use('/api', quizPdfRoute);
 app.use('/api', jobRoutes);
+app.use('/api', landjobRoutes);
+
 
 app.get('/signin', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/pages/signin.html'));
