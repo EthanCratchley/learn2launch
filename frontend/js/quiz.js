@@ -1,3 +1,5 @@
+let currentQuizData = [];
+
 document.getElementById('generateQuizBtn').addEventListener('click', () => {
     const topic = document.getElementById('quizInput').value;
     if (!topic) {
@@ -20,6 +22,7 @@ document.getElementById('generateQuizBtn').addEventListener('click', () => {
     })
     .then(quiz => {
         displayQuiz(quiz);
+        currentQuizData = quiz;
     })
     .catch(error => {
         console.error('Error:', error);
@@ -29,7 +32,7 @@ document.getElementById('generateQuizBtn').addEventListener('click', () => {
 
 function displayQuiz(quiz) {
     const displayArea = document.getElementById('quizDisplayArea');
-    displayArea.innerHTML = ''; // Clear existing content
+    displayArea.innerHTML = ''; 
 
     quiz.forEach((question, index) => {
         const questionElement = document.createElement('div');
@@ -44,3 +47,26 @@ function displayQuiz(quiz) {
         displayArea.appendChild(answerElement);
     });
 }
+
+document.getElementById('downloadQuizPdfBtn').addEventListener('click', function() {
+    fetch('/api/downloadQuiz', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ quiz: currentQuizData })
+    })
+    .then(response => response.blob())
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = 'quiz.pdf';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    })
+    .catch(error => console.error('Error:', error));
+});

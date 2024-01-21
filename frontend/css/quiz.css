@@ -80,22 +80,24 @@ nav button:hover {
 }
 
 /* Download PDF Button */
-#downloadPdfBtn {
-    /* Same style as in flashcards.css */
-    background-color: #4CAF50; 
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
+.download-pdf-container {
+    text-align: right;
+    padding: 10px 20px; /* Adjust padding as needed */
 }
 
-#downloadPdfBtn:hover {
+#downloadQuizPdfBtn {
+    /* Styles for the button (you can reuse the styles from flashcards.css) */
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+#downloadQuizPdfBtn:hover {
     background-color: #45a049;
 }
 
