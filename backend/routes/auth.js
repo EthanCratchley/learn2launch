@@ -4,7 +4,6 @@ const User = require('../models/User');
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
 
-// Register User
 router.post('/register', (req, res) => {
     const { name, email, password } = req.body;
     User.findOne({ email: email }).then(user => {
@@ -33,7 +32,6 @@ router.post('/register', (req, res) => {
     });
 });
 
-// Login route
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
         if (err) {
@@ -51,14 +49,12 @@ router.post('/login', (req, res, next) => {
     })(req, res, next);
 });
 
-// Logout user
 router.get('/logout', (req, res) => {
     req.logout(function(err) {
         if (err) { 
             console.error('Logout error', err);
             return res.status(500).json({ message: 'Logout failed' });
         }
-        // Destroy the session after logging out
         req.session.destroy(() => {
             res.status(200).json({ message: 'Logout successful' });
         });

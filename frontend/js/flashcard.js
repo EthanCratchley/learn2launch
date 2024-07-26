@@ -31,8 +31,8 @@ document.getElementById('generateFlashcardsBtn').addEventListener('click', () =>
 
 function displayFlashcards(flashcards) {
     const displayArea = document.getElementById('flashcardDisplayArea');
-    displayArea.innerHTML = ''; // Clear existing content
-    yourFlashcardsData = flashcards; // Update the global variable
+    displayArea.innerHTML = ''; 
+    yourFlashcardsData = flashcards; 
 
     flashcards.forEach(card => {
         const cardElement = document.createElement('div');

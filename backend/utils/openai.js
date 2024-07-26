@@ -12,7 +12,6 @@ async function generateFlashcards(prompt) {
 
         console.log('API Response:', response);
 
-        // Check if response.choices[0].text is a string
         if (typeof response.choices[0].text === 'string') {
             const flashcards = parseResponseToFlashcards(response.choices[0].text);
             return flashcards;
@@ -30,7 +29,6 @@ function parseResponseToFlashcards(responseText) {
         throw new Error('Expected a string for parsing flashcards');
     }
 
-    // Splitting flashcards based on a more specific pattern
     const flashcardsRaw = responseText.trim().split('\n\n');
     const flashcards = flashcardsRaw.map(flashcardText => {
         const lines = flashcardText.trim().split('\n');

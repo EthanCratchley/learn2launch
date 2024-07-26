@@ -18,9 +18,9 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
     .then(response => response.json())
     .then(data => {
       if (data.success) {
-        window.location.href = '/signin.html'; // Redirect to the sign-in page on success
+        window.location.href = '/signin.html';
       } else {
-        alert(data.message); // Show error message from server
+        alert(data.message); 
       }
     })
     .catch(error => {

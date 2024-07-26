@@ -20,10 +20,8 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     })
     .then(data => {
         if (data.success) {
-            // Redirect user to home page or dashboard on the correct port
             window.location.href = 'http://127.0.0.1:5001/userhome';
         } else {
-            // Handle failed login attempt here, e.g., show an error message
             alert(data.message || 'Login failed.');
         }
     })

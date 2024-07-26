@@ -5,13 +5,11 @@ const PDFDocument = require('pdfkit');
 router.post('/downloadFlashcards', (req, res) => {
     const flashcards = req.body.flashcards; 
 
-    // Create a PDF document
     const doc = new PDFDocument();
     res.setHeader('Content-Disposition', 'attachment; filename=flashcards.pdf');
     res.setHeader('Content-Type', 'application/pdf');
     doc.pipe(res);
 
-    // Add flashcards to the PDF
     flashcards.forEach(card => {
         doc.fontSize(12).text(`Question: ${card.question}`, { underline: true });
         doc.fontSize(12).text(`Answer: ${card.answer}`, { italic: true });

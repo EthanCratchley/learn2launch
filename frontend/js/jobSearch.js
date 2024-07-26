@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         jobElement.appendChild(title);
     
         const description = document.createElement('p');
-        description.textContent = truncateText(job.description, 200); // Truncate to 200 characters
+        description.textContent = truncateText(job.description, 200); 
         description.className = 'job-description';
         jobElement.appendChild(description);
     
@@ -74,15 +74,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function toggleFullDescription(element, fullText) {
         if (element.textContent.endsWith('...')) {
-            element.textContent = fullText; // Show full text
+            element.textContent = fullText; 
         } else {
-            element.textContent = truncateText(fullText, 200); // Collapse back
+            element.textContent = truncateText(fullText, 200);
         }
     }
      
     function displayJobs(jobs) {
         const jobResultsDiv = document.getElementById('jobResults');
-        jobResultsDiv.innerHTML = ''; // Clear previous results
+        jobResultsDiv.innerHTML = ''; 
     
         jobs.forEach(job => {
             const jobElement = createJobElement(job);

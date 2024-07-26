@@ -21,7 +21,7 @@ document.getElementById('generateSummaryBtn').addEventListener('click', () => {
     .then(data => {
         const displayArea = document.getElementById('summaryDisplayArea');
         displayArea.textContent = data.summary;
-        currentSummaryData = data.summary; // Store the summary data for download
+        currentSummaryData = data.summary; 
     })
     .catch(error => {
         console.error('Error:', error);
